@@ -45,6 +45,9 @@
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
+#ifdef _MSC_VER
+#include <malloc.h>
+#endif
 
 /* event string handling */
 
@@ -87,7 +90,7 @@ evt_str_append_escape_bs(EVTSTR *es,
   /* FIXME: this is a gcc extension, alternative would be to use alloca(),
    * which is not portable */
 
-  char buf[4*unescaped_len + 1]; 
+  char *buf = (char *)alloca(4*unescaped_len + 1);
                              
   int i, dst;
   
@@ -96,7 +99,7 @@ evt_str_append_escape_bs(EVTSTR *es,
       
       if ((unsigned) unescaped[i] < 32 || (unsigned) unescaped[i] > 127)
         {
-          sprintf(&buf[dst], "\\x%02x", (unsigned int) unescaped[i]);
+          sprintf(&buf[dst], "\\x%02x", (unsigned char) unescaped[i]);
           dst += 4;
         }
       else if (unescaped[i] == escape_char)
@@ -122,7 +125,7 @@ evt_str_append_escape_xml_attr(EVTSTR *es,
   /* FIXME: this is a gcc extension, alternative would be to use alloca(),
    * which is not portable */
 
-  char buf[6*unescaped_len + 1]; 
+  char *buf = (char *)alloca(6*unescaped_len + 1);
                              
   int i, dst;
   
@@ -130,7 +133,7 @@ evt_str_append_escape_xml_attr(EVTSTR *es,
     {
       if ((unsigned) unescaped[i] < 32)
         {
-          sprintf(&buf[dst], "&#x%02x;", (unsigned int) unescaped[i]);
+          sprintf(&buf[dst], "&#x%02x;", (unsigned char) unescaped[i]);
           dst += 6;
         }
       else if (unescaped[i] == '"')
@@ -156,7 +159,7 @@ evt_str_append_escape_xml_pcdata(EVTSTR *es,
   /* FIXME: this is a gcc extension, alternative would be to use alloca(),
    * which is not portable */
 
-  char buf[6*unescaped_len + 1]; 
+  char *buf = (char *)alloca(6*unescaped_len + 1);
                              
   int i, dst;
   
@@ -164,7 +167,7 @@ evt_str_append_escape_xml_pcdata(EVTSTR *es,
     {
       if ((unsigned) unescaped[i] < 32)
         {
-          sprintf(&buf[dst], "&#x%02x;", (unsigned int) unescaped[i]);
+          sprintf(&buf[dst], "&#x%02x;", (unsigned char) unescaped[i]);
           dst += 6;
         }
       else if (unescaped[i] == '<')
