@@ -33,7 +33,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-subdir = solbuild
+subdir = tgz2build
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
@@ -166,7 +166,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-EXTRA_DIST = rules rules.conf pkginfo.dev pkginfo.lib pkgmaker.sh prototype-maker.sh admin
+EXTRA_DIST = rules rules.conf rules.conf.in libevtlog-dev.files libevtlog0.files 
 all: all-am
 
 .SUFFIXES:
@@ -179,9 +179,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign solbuild/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign tgz2build/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign solbuild/Makefile
+	  $(AUTOMAKE) --foreign tgz2build/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -352,10 +352,7 @@ uninstall-am:
 	mostlyclean-libtool pdf pdf-am ps ps-am uninstall uninstall-am
 
 
-pkginfo.dev: pkginfo.dev.in
-	$(top_builddir)/config.status --file $@:$< 
-
-pkginfo.lib: pkginfo.lib.in
+rules.conf: rules.conf.in
 	$(top_builddir)/config.status --file $@:$< 
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

@@ -41,10 +41,16 @@
  
 #include "evt_internals.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 #include <stdarg.h>
+
+#ifdef _MSC_VER
+#ifndef snprintf
+#define snprintf _snprintf
+#endif
+#endif
 
 void
 evt_tag_free(EVTTAG *et)
@@ -78,6 +84,15 @@ evt_tag_int(const char *tag, int value)
   char buf[32]; /* a 64 bit int fits into 20 characters */
   
   snprintf(buf, sizeof(buf), "%d", value);
+  return evt_tag_str(tag, buf);
+}
+
+EVTTAG *
+evt_tag_long(const char *tag, long value)
+{
+  char buf[32]; /* a 64 bit int fits into 20 characters */
+  
+  snprintf(buf, sizeof(buf), "%ld", value);
   return evt_tag_str(tag, buf);
 }
 

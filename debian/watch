@@ -1,0 +1,2 @@
+version=3
+http://www.balabit.com/hu/downloads/files?path=/eventlog/0.2/ .*/eventlog_([\d\.]+).tar.gz

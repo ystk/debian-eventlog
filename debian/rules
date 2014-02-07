@@ -5,7 +5,10 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-build: build-stamp
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
+
 build-stamp:
 	dh_testdir
 
@@ -22,7 +25,7 @@ clean:
 	rm -f build-stamp
 
 	[ ! -f Makefile ] || $(MAKE) distclean
-	-rm compile aclocal.m4 config.guess config.h.in config.sub configure
+	-rm compile aclocal.m4 config.guess config.h.in config.sub configure config.log
 	-rm depcomp install-sh ltmain.sh missing mkinstalldirs
 
 	dh_clean

@@ -1,3 +1,38 @@
+eventlog (0.2.12-5) unstable; urgency=low
+
+  * Set the dependency to 0.2.12 in shlib. Closes: #644475
+
+ -- SZALAY Attila <sasa@debian.org>  Thu, 06 Oct 2011 20:36:34 +0200
+
+eventlog (0.2.12-4) unstable; urgency=low
+
+  * Added debian/watch file.
+
+ -- SZALAY Attila <sasa@debian.org>  Mon, 26 Sep 2011 11:32:46 +0200
+
+eventlog (0.2.12-3) unstable; urgency=low
+
+  * Update policy level to 3.9.2.
+  * Added the two missing recommended target.
+  * Removel config.log in the clean target.
+
+ -- SZALAY Attila <sasa@debian.org>  Thu, 01 Sep 2011 00:31:39 +0200
+
+eventlog (0.2.12-2) unstable; urgency=low
+
+  * Upgrade to current automake. Closes: #622007
+    - the patch came from Colin Watson <cjwatson@ubuntu.com>.
+
+ -- SZALAY Attila <sasa@debian.org>  Sun, 28 Aug 2011 16:44:58 +0200
+
+eventlog (0.2.12-1) unstable; urgency=low
+
+  * New upstream version.(Closes: #618913)
+  * Fixed lintian warnings and errors.
+  * Fixed a typo in libevtlog-dev description. (Closes: #604704)
+
+ -- SZALAY Attila <sasa@debian.org>  Sat, 19 Mar 2011 18:47:19 +0100
+
 eventlog (0.2.8~1-2) unstable; urgency=low
 
   * Added libtool dependency.
@@ -7,7 +42,7 @@ eventlog (0.2.8~1-2) unstable; urgency=low
 eventlog (0.2.8~1-1) unstable; urgency=low
 
   * New upstream version.
-    - Whit upstream help made eventlog be able to compile.
+    - With upstream helpthe eventlog be able to compile.
 
  -- SZALAY Attila <sasa@debian.org>  Tue,  5 Feb 2008 21:26:13 +0100
 

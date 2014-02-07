@@ -28,7 +28,9 @@ if test -n "$SNAPSHOT_VERSION"; then
         VERSION=$VERSION+$SNAPSHOT_VERSION
 fi
 
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_MACRO_DIR([m4])
+
+AC_CONFIG_HEADERS(config.h)
 
 
 AC_ARG_ENABLE(dlsym-wrapper,
@@ -75,8 +77,11 @@ AC_SUBST(SOURCE_REVISION)
 
 AC_OUTPUT(Makefile 
         src/Makefile 
-        tests/Makefile 
+        tests/Makefile
+        tgzbuild/Makefile
+        tgz2build/Makefile
         eventlog.pc 
         eventlog.spec.bb 
         solbuild/Makefile
+        winbuild/Makefile
         )
