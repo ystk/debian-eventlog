@@ -1,1 +1,1 @@
-usr/lib/libevtlog.so.*
+usr/lib/*/libevtlog.so.*

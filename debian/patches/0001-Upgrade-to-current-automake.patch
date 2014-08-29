@@ -1,0 +1,23 @@
+From: SZALAY Attila <sasa@debian.org>
+Date: Fri, 16 Aug 2013 02:16:35 +0200
+Subject: Upgrade to current automake
+
+Origin: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=622007#10
+Forwarded: no
+---
+ configure.in |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.in b/configure.in
+index 8a595af..72d76e0 100644
+--- a/configure.in
++++ b/configure.in
+@@ -30,7 +30,7 @@ fi
+ 
+ AC_CONFIG_MACRO_DIR([m4])
+ 
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS(config.h)
+ 
+ 
+ AC_ARG_ENABLE(dlsym-wrapper,

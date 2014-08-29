@@ -1,3 +1,16 @@
+eventlog (0.2.12-6) unstable; urgency=low
+
+  * Removed somewhat accidentally included files
+  * Changed the rules file to use dh
+  * Changed debhelper compat level to 9
+  * Added MultiArch information
+  * Turn to format 3 (quilt)
+  * Added Vcs-* fields
+  * Updated to Standard Version 3.9.4
+  * Added symbol file
+
+ -- SZALAY Attila <sasa@debian.org>  Fri, 16 Aug 2013 06:37:09 +0200
+
 eventlog (0.2.12-5) unstable; urgency=low
 
   * Set the dependency to 0.2.12 in shlib. Closes: #644475
